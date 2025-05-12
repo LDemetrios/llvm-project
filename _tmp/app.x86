@@ -1,0 +1,417 @@
+	.file	"app.c"
+	.text
+	.globl	color                           # -- Begin function color
+	.p2align	4
+	.type	color,@function
+color:                                  # @color
+	.cfi_startproc
+# %bb.0:
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset %ebp, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register %ebp
+	pushl	%eax
+	movl	8(%ebp), %eax
+	cmpl	$0, 8(%ebp)
+	jne	.LBB0_2
+# %bb.1:
+	movl	$-8947849, -4(%ebp)             # imm = 0xFF777777
+	jmp	.LBB0_9
+.LBB0_2:
+	cmpl	$1, 8(%ebp)
+	jne	.LBB0_4
+# %bb.3:
+	movl	$-65536, -4(%ebp)               # imm = 0xFFFF0000
+	jmp	.LBB0_9
+.LBB0_4:
+	cmpl	$2, 8(%ebp)
+	jne	.LBB0_6
+# %bb.5:
+	movl	$-35072, -4(%ebp)               # imm = 0xFFFF7700
+	jmp	.LBB0_9
+.LBB0_6:
+	cmpl	$3, 8(%ebp)
+	jne	.LBB0_8
+# %bb.7:
+	movl	$-256, -4(%ebp)
+	jmp	.LBB0_9
+.LBB0_8:
+	movl	$-16776961, -4(%ebp)            # imm = 0xFF0000FF
+.LBB0_9:
+	movl	-4(%ebp), %eax
+	addl	$4, %esp
+	popl	%ebp
+	.cfi_def_cfa %esp, 4
+	retl
+.Lfunc_end0:
+	.size	color, .Lfunc_end0-color
+	.cfi_endproc
+                                        # -- End function
+	.globl	app                             # -- Begin function app
+	.p2align	4
+	.type	app,@function
+app:                                    # @app
+	.cfi_startproc
+# %bb.0:
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset %ebp, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register %ebp
+	pushl	%edi
+	pushl	%esi
+	subl	$32880, %esp                    # imm = 0x8070
+	.cfi_offset %esi, -16
+	.cfi_offset %edi, -12
+	movl	%gs:20, %eax
+	movl	%eax, -12(%ebp)
+	movl	%esp, -32856(%ebp)
+	movl	$0, -32840(%ebp)
+.LBB1_1:                                # =>This Loop Header: Depth=1
+                                        #     Child Loop BB1_3 Depth 2
+	cmpl	$128, -32840(%ebp)
+	jge	.LBB1_8
+# %bb.2:                                #   in Loop: Header=BB1_1 Depth=1
+	movl	$0, -32836(%ebp)
+.LBB1_3:                                #   Parent Loop BB1_1 Depth=1
+                                        # =>  This Inner Loop Header: Depth=2
+	cmpl	$256, -32836(%ebp)              # imm = 0x100
+	jge	.LBB1_6
+# %bb.4:                                #   in Loop: Header=BB1_3 Depth=2
+	calll	simRand@PLT
+	movl	%eax, %ecx
+	addl	$1023, %ecx                     # imm = 0x3FF
+	testl	%eax, %eax
+	movl	%eax, %edx
+	cmovsl	%ecx, %edx
+	andl	$-1024, %edx                    # imm = 0xFC00
+	movl	%eax, %ecx
+	subl	%edx, %ecx
+	addl	$1024, %ecx                     # imm = 0x400
+	negl	%edx
+	leal	2047(%eax,%edx), %eax
+	testl	%ecx, %ecx
+	movl	%ecx, %edx
+	cmovsl	%eax, %edx
+	andl	$-1024, %edx                    # imm = 0xFC00
+	subl	%edx, %ecx
+	movl	%ecx, -32868(%ebp)
+	movl	-32868(%ebp), %eax
+	movl	%eax, %ecx
+	addl	$255, %ecx
+	testl	%eax, %eax
+	cmovsl	%ecx, %eax
+	movl	-32836(%ebp), %ecx
+	shll	$7, %ecx
+	leal	-32792(%ebp,%ecx), %ecx
+	movl	-32840(%ebp), %edx
+	movb	%ah, (%edx,%ecx)
+# %bb.5:                                #   in Loop: Header=BB1_3 Depth=2
+	movl	-32836(%ebp), %eax
+	addl	$1, %eax
+	movl	%eax, -32836(%ebp)
+	jmp	.LBB1_3
+.LBB1_6:                                #   in Loop: Header=BB1_1 Depth=1
+	jmp	.LBB1_7
+.LBB1_7:                                #   in Loop: Header=BB1_1 Depth=1
+	movl	-32840(%ebp), %eax
+	addl	$1, %eax
+	movl	%eax, -32840(%ebp)
+	jmp	.LBB1_1
+.LBB1_8:
+	movl	$0, -32848(%ebp)
+.LBB1_9:                                # =>This Loop Header: Depth=1
+                                        #     Child Loop BB1_11 Depth 2
+                                        #       Child Loop BB1_13 Depth 3
+                                        #         Child Loop BB1_19 Depth 4
+                                        #           Child Loop BB1_21 Depth 5
+                                        #         Child Loop BB1_38 Depth 4
+                                        #           Child Loop BB1_40 Depth 5
+                                        #     Child Loop BB1_50 Depth 2
+                                        #       Child Loop BB1_52 Depth 3
+	cmpl	$1000000000, -32848(%ebp)       # imm = 0x3B9ACA00
+	jge	.LBB1_59
+# %bb.10:                               #   in Loop: Header=BB1_9 Depth=1
+	movl	$0, -32800(%ebp)
+.LBB1_11:                               #   Parent Loop BB1_9 Depth=1
+                                        # =>  This Loop Header: Depth=2
+                                        #       Child Loop BB1_13 Depth 3
+                                        #         Child Loop BB1_19 Depth 4
+                                        #           Child Loop BB1_21 Depth 5
+                                        #         Child Loop BB1_38 Depth 4
+                                        #           Child Loop BB1_40 Depth 5
+	cmpl	$128, -32800(%ebp)
+	jge	.LBB1_49
+# %bb.12:                               #   in Loop: Header=BB1_11 Depth=2
+	movl	$0, -32796(%ebp)
+.LBB1_13:                               #   Parent Loop BB1_9 Depth=1
+                                        #     Parent Loop BB1_11 Depth=2
+                                        # =>    This Loop Header: Depth=3
+                                        #         Child Loop BB1_19 Depth 4
+                                        #           Child Loop BB1_21 Depth 5
+                                        #         Child Loop BB1_38 Depth 4
+                                        #           Child Loop BB1_40 Depth 5
+	cmpl	$256, -32796(%ebp)              # imm = 0x100
+	jge	.LBB1_47
+# %bb.14:                               #   in Loop: Header=BB1_13 Depth=3
+	movl	-32796(%ebp), %eax
+	shll	$7, %eax
+	leal	-32792(%ebp,%eax), %eax
+	movl	-32800(%ebp), %ecx
+	movb	(%ecx,%eax), %al
+	movsbl	%al, %eax
+	andl	$3, %eax
+	movl	%eax, -32844(%ebp)
+	cmpl	$2, -32844(%ebp)
+	jne	.LBB1_16
+# %bb.15:                               #   in Loop: Header=BB1_13 Depth=3
+	movl	$3, -32808(%ebp)
+	jmp	.LBB1_37
+.LBB1_16:                               #   in Loop: Header=BB1_13 Depth=3
+	cmpl	$3, -32844(%ebp)
+	jne	.LBB1_18
+# %bb.17:                               #   in Loop: Header=BB1_13 Depth=3
+	movl	$0, -32808(%ebp)
+	jmp	.LBB1_36
+.LBB1_18:                               #   in Loop: Header=BB1_13 Depth=3
+	movl	$0, -32804(%ebp)
+	movl	$-2, -32832(%ebp)
+.LBB1_19:                               #   Parent Loop BB1_9 Depth=1
+                                        #     Parent Loop BB1_11 Depth=2
+                                        #       Parent Loop BB1_13 Depth=3
+                                        # =>      This Loop Header: Depth=4
+                                        #           Child Loop BB1_21 Depth 5
+	cmpl	$2, -32832(%ebp)
+	jg	.LBB1_28
+# %bb.20:                               #   in Loop: Header=BB1_19 Depth=4
+	movl	$-2, -32828(%ebp)
+.LBB1_21:                               #   Parent Loop BB1_9 Depth=1
+                                        #     Parent Loop BB1_11 Depth=2
+                                        #       Parent Loop BB1_13 Depth=3
+                                        #         Parent Loop BB1_19 Depth=4
+                                        # =>        This Inner Loop Header: Depth=5
+	cmpl	$2, -32828(%ebp)
+	jg	.LBB1_26
+# %bb.22:                               #   in Loop: Header=BB1_21 Depth=5
+	movl	-32796(%ebp), %eax
+	movl	-32828(%ebp), %ecx
+	leal	512(%eax,%ecx), %edx
+	leal	767(%eax,%ecx), %eax
+	testl	%edx, %edx
+	movl	%edx, %ecx
+	cmovsl	%eax, %ecx
+	andl	$-256, %ecx
+	subl	%ecx, %edx
+	movl	%edx, -32864(%ebp)
+	movl	-32800(%ebp), %eax
+	movl	-32832(%ebp), %ecx
+	leal	256(%eax,%ecx), %edx
+	leal	511(%eax,%ecx), %eax
+	testl	%edx, %edx
+	movl	%edx, %ecx
+	cmovsl	%eax, %ecx
+	andl	$-256, %ecx
+	subl	%ecx, %edx
+	movl	%edx, -32860(%ebp)
+	movl	-32864(%ebp), %eax
+	shll	$7, %eax
+	leal	-32792(%ebp,%eax), %eax
+	movl	-32860(%ebp), %ecx
+	movb	(%ecx,%eax), %al
+	movsbl	%al, %eax
+	andl	$3, %eax
+	cmpl	$1, %eax
+	jne	.LBB1_24
+# %bb.23:                               #   in Loop: Header=BB1_21 Depth=5
+	movl	-32804(%ebp), %eax
+	addl	$1, %eax
+	movl	%eax, -32804(%ebp)
+.LBB1_24:                               #   in Loop: Header=BB1_21 Depth=5
+	jmp	.LBB1_25
+.LBB1_25:                               #   in Loop: Header=BB1_21 Depth=5
+	movl	-32828(%ebp), %eax
+	addl	$1, %eax
+	movl	%eax, -32828(%ebp)
+	jmp	.LBB1_21
+.LBB1_26:                               #   in Loop: Header=BB1_19 Depth=4
+	jmp	.LBB1_27
+.LBB1_27:                               #   in Loop: Header=BB1_19 Depth=4
+	movl	-32832(%ebp), %eax
+	addl	$1, %eax
+	movl	%eax, -32832(%ebp)
+	jmp	.LBB1_19
+.LBB1_28:                               #   in Loop: Header=BB1_13 Depth=3
+	cmpl	$0, -32844(%ebp)
+	jne	.LBB1_32
+# %bb.29:                               #   in Loop: Header=BB1_13 Depth=3
+	xorl	%eax, %eax
+	movl	$6, %ecx
+	cmpl	-32804(%ebp), %ecx
+	jg	.LBB1_31
+# %bb.30:                               #   in Loop: Header=BB1_13 Depth=3
+	cmpl	$7, -32804(%ebp)
+	setle	%al
+.LBB1_31:                               #   in Loop: Header=BB1_13 Depth=3
+	xorl	%ecx, %ecx
+	movl	$1, %edx
+	testb	$1, %al
+	cmovnel	%edx, %ecx
+	movl	%ecx, -32808(%ebp)
+	jmp	.LBB1_35
+.LBB1_32:                               #   in Loop: Header=BB1_13 Depth=3
+	xorl	%eax, %eax
+	movl	$8, %ecx
+	cmpl	-32804(%ebp), %ecx
+	jg	.LBB1_34
+# %bb.33:                               #   in Loop: Header=BB1_13 Depth=3
+	cmpl	$12, -32804(%ebp)
+	setle	%al
+.LBB1_34:                               #   in Loop: Header=BB1_13 Depth=3
+	movl	$2, %ecx
+	movl	$1, %edx
+	testb	$1, %al
+	cmovnel	%edx, %ecx
+	movl	%ecx, -32808(%ebp)
+.LBB1_35:                               #   in Loop: Header=BB1_13 Depth=3
+	jmp	.LBB1_36
+.LBB1_36:                               #   in Loop: Header=BB1_13 Depth=3
+	jmp	.LBB1_37
+.LBB1_37:                               #   in Loop: Header=BB1_13 Depth=3
+	movl	-32808(%ebp), %eax
+	movl	-32796(%ebp), %ecx
+	shll	$7, %ecx
+	leal	-32792(%ebp,%ecx), %ecx
+	movl	-32800(%ebp), %edx
+	movzbl	(%edx,%ecx), %esi
+	leal	(%esi,%eax,4), %eax
+	movb	%al, (%edx,%ecx)
+	movl	$0, -32824(%ebp)
+.LBB1_38:                               #   Parent Loop BB1_9 Depth=1
+                                        #     Parent Loop BB1_11 Depth=2
+                                        #       Parent Loop BB1_13 Depth=3
+                                        # =>      This Loop Header: Depth=4
+                                        #           Child Loop BB1_40 Depth 5
+	cmpl	$2, -32824(%ebp)
+	jge	.LBB1_45
+# %bb.39:                               #   in Loop: Header=BB1_38 Depth=4
+	movl	$0, -32820(%ebp)
+.LBB1_40:                               #   Parent Loop BB1_9 Depth=1
+                                        #     Parent Loop BB1_11 Depth=2
+                                        #       Parent Loop BB1_13 Depth=3
+                                        #         Parent Loop BB1_38 Depth=4
+                                        # =>        This Inner Loop Header: Depth=5
+	cmpl	$2, -32820(%ebp)
+	jge	.LBB1_43
+# %bb.41:                               #   in Loop: Header=BB1_40 Depth=5
+	movl	-32796(%ebp), %esi
+	shll	%esi
+	addl	-32820(%ebp), %esi
+	movl	-32800(%ebp), %edi
+	shll	%edi
+	addl	-32824(%ebp), %edi
+	movl	-32808(%ebp), %eax
+	movl	%eax, (%esp)
+	calll	color
+	movl	%esi, (%esp)
+	movl	%edi, 4(%esp)
+	movl	%eax, 8(%esp)
+	calll	simPutPixel@PLT
+# %bb.42:                               #   in Loop: Header=BB1_40 Depth=5
+	movl	-32820(%ebp), %eax
+	addl	$1, %eax
+	movl	%eax, -32820(%ebp)
+	jmp	.LBB1_40
+.LBB1_43:                               #   in Loop: Header=BB1_38 Depth=4
+	jmp	.LBB1_44
+.LBB1_44:                               #   in Loop: Header=BB1_38 Depth=4
+	movl	-32824(%ebp), %eax
+	addl	$1, %eax
+	movl	%eax, -32824(%ebp)
+	jmp	.LBB1_38
+.LBB1_45:                               #   in Loop: Header=BB1_13 Depth=3
+	jmp	.LBB1_46
+.LBB1_46:                               #   in Loop: Header=BB1_13 Depth=3
+	movl	-32796(%ebp), %eax
+	addl	$1, %eax
+	movl	%eax, -32796(%ebp)
+	jmp	.LBB1_13
+.LBB1_47:                               #   in Loop: Header=BB1_11 Depth=2
+	jmp	.LBB1_48
+.LBB1_48:                               #   in Loop: Header=BB1_11 Depth=2
+	movl	-32800(%ebp), %eax
+	addl	$1, %eax
+	movl	%eax, -32800(%ebp)
+	jmp	.LBB1_11
+.LBB1_49:                               #   in Loop: Header=BB1_9 Depth=1
+	calll	simFlush@PLT
+	movl	$0, -32816(%ebp)
+.LBB1_50:                               #   Parent Loop BB1_9 Depth=1
+                                        # =>  This Loop Header: Depth=2
+                                        #       Child Loop BB1_52 Depth 3
+	cmpl	$128, -32816(%ebp)
+	jge	.LBB1_57
+# %bb.51:                               #   in Loop: Header=BB1_50 Depth=2
+	movl	$0, -32812(%ebp)
+.LBB1_52:                               #   Parent Loop BB1_9 Depth=1
+                                        #     Parent Loop BB1_50 Depth=2
+                                        # =>    This Inner Loop Header: Depth=3
+	cmpl	$256, -32812(%ebp)              # imm = 0x100
+	jge	.LBB1_55
+# %bb.53:                               #   in Loop: Header=BB1_52 Depth=3
+	movl	-32812(%ebp), %eax
+	shll	$7, %eax
+	leal	-32792(%ebp,%eax), %eax
+	movl	-32816(%ebp), %ecx
+	movsbl	(%ecx,%eax), %edx
+	shrl	$2, %edx
+	movb	%dl, (%ecx,%eax)
+# %bb.54:                               #   in Loop: Header=BB1_52 Depth=3
+	movl	-32812(%ebp), %eax
+	addl	$1, %eax
+	movl	%eax, -32812(%ebp)
+	jmp	.LBB1_52
+.LBB1_55:                               #   in Loop: Header=BB1_50 Depth=2
+	jmp	.LBB1_56
+.LBB1_56:                               #   in Loop: Header=BB1_50 Depth=2
+	movl	-32816(%ebp), %eax
+	addl	$1, %eax
+	movl	%eax, -32816(%ebp)
+	jmp	.LBB1_50
+.LBB1_57:                               #   in Loop: Header=BB1_9 Depth=1
+	jmp	.LBB1_58
+.LBB1_58:                               #   in Loop: Header=BB1_9 Depth=1
+	movl	-32848(%ebp), %eax
+	addl	$1, %eax
+	movl	%eax, -32848(%ebp)
+	jmp	.LBB1_9
+.LBB1_59:
+	movl	-32856(%ebp), %esp
+	movl	%gs:20, %eax
+	movl	-12(%ebp), %ecx
+	cmpl	%ecx, %eax
+	jne	.LBB1_61
+# %bb.60:                               # %SP_return
+	addl	$32880, %esp                    # imm = 0x8070
+	popl	%esi
+	popl	%edi
+	popl	%ebp
+	.cfi_def_cfa %esp, 4
+	retl
+.LBB1_61:                               # %CallStackCheckFailBlk
+	.cfi_def_cfa %ebp, 8
+	calll	__stack_chk_fail@PLT
+.Lfunc_end1:
+	.size	app, .Lfunc_end1-app
+	.cfi_endproc
+                                        # -- End function
+	.type	coeff,@object                   # @coeff
+	.section	.rodata,"a",@progbits
+	.globl	coeff
+	.p2align	2, 0x0
+coeff:
+	.long	2                               # 0x2
+	.size	coeff, 4
+
+	.ident	"clang version 19.1.7"
+	.section	".note.GNU-stack","",@progbits
