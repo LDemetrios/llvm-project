@@ -492,6 +492,7 @@ set(LLVM_ALL_TARGETS
   NVPTX
   PowerPC
   RISCV
+  Rune
   Sparc
   SPIRV
   SystemZ

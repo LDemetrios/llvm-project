@@ -1,0 +1,12 @@
+#ifndef LLVM_LIB_TARGET_RUNE_TARGETINFO_RUNETARGETINFO_H
+#define LLVM_LIB_TARGET_RUNE_TARGETINFO_RUNETARGETINFO_H
+
+namespace llvm {
+
+class Target;
+
+Target &getTheRuneTarget();
+
+} // end namespace llvm
+
+#endif // LLVM_LIB_TARGET_RUNE_TARGETINFO_RUNETARGETINFO_H
