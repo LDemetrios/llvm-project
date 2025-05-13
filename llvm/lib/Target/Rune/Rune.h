@@ -1,7 +1,9 @@
-#ifndef LLVM_LIB_TARGET_RUNE_RUNE_H
-#define LLVM_LIB_TARGET_RUNE_RUNE_H
+#ifndef LLVM_LIB_TARGET_Rune_Rune_H
+#define LLVM_LIB_TARGET_Rune_Rune_H
 
+#include "MCTargetDesc/RuneMCTargetDesc.h"
 #include "llvm/Support/raw_ostream.h"
+#include "llvm/Target/TargetMachine.h"
 #include <ostream>
 
 // Performed by Lisp magicians, don't try at home
@@ -41,5 +43,27 @@ __VA_OPT__(EXPAND(FOR_EACH_HELPER(sep, macro, __VA_ARGS__)))
 #define TICK_YELLOW(...) TICK(llvm::raw_ostream::YELLOW __VA_OPT__(,) __VA_ARGS__)
 #define TICK_CYAN(...) TICK(llvm::raw_ostream::CYAN __VA_OPT__(,) __VA_ARGS__)
 #define TICK_MAGENTA(...) TICK(llvm::raw_ostream::MAGENTA __VA_OPT__(,) __VA_ARGS__)
+#define TICK_WHITE(...) TICK(llvm::raw_ostream::WHITE __VA_OPT__(,) __VA_ARGS__)
 
-#endif // LLVM_LIB_TARGET_RUNE_RUNE_H
+
+namespace llvm {
+class RuneTargetMachine;
+class FunctionPass;
+class RuneSubtarget;
+class AsmPrinter;
+class InstructionSelector;
+class MCInst;
+class MCOperand;
+class MachineInstr;
+class MachineOperand;
+class PassRegistry;
+
+bool lowerRuneMachineInstrToMCInst(const MachineInstr *MI, MCInst &OutMI,
+                                  AsmPrinter &AP);
+bool LowerRuneMachineOperandToMCOperand(const MachineOperand &MO,
+                                       MCOperand &MCOp, const AsmPrinter &AP);
+FunctionPass *createRuneISelDag(RuneTargetMachine &TM, CodeGenOptLevel OptLevel);
+
+} // namespace llvm
+
+#endif // LLVM_LIB_TARGET_Rune_Rune_H
