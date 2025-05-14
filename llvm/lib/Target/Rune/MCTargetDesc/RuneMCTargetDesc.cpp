@@ -76,4 +76,8 @@ extern "C" LLVM_EXTERNAL_VISIBILITY void LLVMInitializeRuneTargetMC() {
 
   // Register the MCInstPrinter
   TargetRegistry::RegisterMCInstPrinter(TheRuneTarget, createRuneMCInstPrinter);
+  // Register the MC Code Emitter.
+  TargetRegistry::RegisterMCCodeEmitter(TheRuneTarget, createRuneMCCodeEmitter);
+  // Register the asm backend.
+  TargetRegistry::RegisterMCAsmBackend(TheRuneTarget, createRuneAsmBackend);
 }

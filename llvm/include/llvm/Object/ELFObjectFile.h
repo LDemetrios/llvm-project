@@ -1347,6 +1347,8 @@ StringRef ELFObjectFile<ELFT>::getFileFormatName() const {
       return "elf64-ve";
     case ELF::EM_LOONGARCH:
       return "elf64-loongarch";
+    case ELF::EM_RUNE:
+      return "elf64-rune";
     default:
       return "elf64-unknown";
     }
@@ -1408,6 +1410,9 @@ template <class ELFT> Triple::ArchType ELFObjectFile<ELFT>::getArch() const {
     return IsLittleEndian ? Triple::sparcel : Triple::sparc;
   case ELF::EM_SPARCV9:
     return Triple::sparcv9;
+
+  case ELF::EM_RUNE:
+    return Triple::rune;
 
   case ELF::EM_AMDGPU: {
     if (!IsLittleEndian)

@@ -11,6 +11,7 @@ test: # build
 	install/bin/llc _tmp/test.ll -march rune -o _tmp/test.r
 	echo && echo && echo "========= test.ll, rune ========="
 	cat _tmp/test.r && echo && echo
+	install/bin/llc _tmp/test.ll -march rune -o _tmp/test.o -filetype=obj
 
 app: # build
 	install/bin/llc _tmp/app.ll -march x86 -o _tmp/app.x86

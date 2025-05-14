@@ -9,6 +9,7 @@ tablegen(LLVM RuneGenMCPseudoLowering.inc -gen-pseudo-lowering)
 tablegen(LLVM RuneGenDAGISel.inc -gen-dag-isel)
 tablegen(LLVM RuneGenCallingConv.inc -gen-callingconv)
 tablegen(LLVM RuneGenAsmWriter.inc -gen-asm-writer)
+tablegen(LLVM RuneGenMCCodeEmitter.inc -gen-emitter)
 
 add_public_tablegen_target(RuneCommonTableGen)
 
