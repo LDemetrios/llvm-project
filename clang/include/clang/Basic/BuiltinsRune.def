@@ -1,0 +1,4 @@
+BUILTIN(runePutPixel, "vUiUiUi", "nc")
+BUILTIN(runeFlush, "v", "nc")
+
+#undef BUILTIN
